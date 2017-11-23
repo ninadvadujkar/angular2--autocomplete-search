@@ -1,0 +1,16 @@
+<!-- <input (keyup)="searchTerm$.next($event.target.value)"/>
+<ul>
+  <li *ngFor="let result of results | slice:0:9">
+    {{result.name}}
+  </li>
+</ul> -->
+
+<mat-form-field class="example-form">
+    <input type="text" matInput [formControl]="stateCtrl" [matAutocomplete]="auto" (keyup)="searchTerm$.next($event.target.value)">
+ </mat-form-field>
+
+ <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let result of results | slice:0:9" [value]="result.name">
+      {{ result.name }}
+    </mat-option>
+ </mat-autocomplete>
